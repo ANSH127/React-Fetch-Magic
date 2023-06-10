@@ -5,7 +5,13 @@ import HomePage from './components/HomePage';
 import SuperHerosPage from './components/SuperHerosPage';
 import RQSuperHerosPage from './components/RQSuperHerosPage'; 
 import Navbar from './composables/Navbar';
+import {
+  QueryClient,
+  QueryClientProvider,
+  
+} from '@tanstack/react-query'
 
+const queryClient = new QueryClient()
 
 
 
@@ -13,6 +19,8 @@ import Navbar from './composables/Navbar';
 function App() {
   return (
     <>
+
+    <QueryClientProvider client={queryClient}>
     <Router>
       <Navbar />
 
@@ -27,6 +35,7 @@ function App() {
 
 
     </Router>
+    </QueryClientProvider>
     </>
   );
 }
