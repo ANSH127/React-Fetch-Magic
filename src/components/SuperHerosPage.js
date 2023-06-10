@@ -5,9 +5,15 @@ export default function SuperHerosPage() {
 
   const [isloading, setisloading] = React.useState(true)
   const [data, setdata] = React.useState([])
+  const [error, seterror] = React.useState(null)
+
   useEffect(() => {
     axios.get('http://localhost:4000/superheroes').then((res) => {
       setdata(res.data)
+      setisloading(false)
+    }
+    ).catch((err) => {
+      seterror(err.message)
       setisloading(false)
     }
     )
@@ -19,6 +25,10 @@ export default function SuperHerosPage() {
     return (
       <div>loading...</div>
     )
+  }
+  if (error) {
+
+    return <h2>{error}</h2>
   }
 
 
