@@ -1,5 +1,5 @@
 
-import { useQuery,useMutation } from '@tanstack/react-query'
+import { useQuery,useMutation,useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 
 export const useSuperHerosData = (onSuccess,onError) =>useQuery({
@@ -18,11 +18,15 @@ export const useSuperHerosData = (onSuccess,onError) =>useQuery({
     
   })
 
-  export const useAddSuperHero = () =>useMutation({
+  export const useAddSuperHero = () =>{
+  const queryClient=useQueryClient()
+    
+   return useMutation({
     mutationFn: (data) =>
       axios.post('http://localhost:4000/superheroes',data),
-    onSuccess:()=>console.log('data added successfully'),
+    onSuccess:()=>queryClient.invalidateQueries({queryKey:['superherodata']}),
     onError:()=>console.log('data not added successfully'),
 
   })
+}
 
