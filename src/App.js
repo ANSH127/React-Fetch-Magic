@@ -6,6 +6,7 @@ import SuperHerosPage from './components/SuperHerosPage';
 import RQSuperHerosPage from './components/RQSuperHerosPage'; 
 import RQSuperHeroDetail from './components/RQSuperHeroDetail';
 import RQParallelQuaries from './components/RQParallelQuaries';
+import RQDynamicParallelQuaries from './components/RQDynamicParallelQuaries';
 import Navbar from './composables/Navbar';
 import {
   QueryClient,
@@ -34,6 +35,7 @@ function App() {
         <Route path="/rq-super-heros" element={<RQSuperHerosPage />} />
         <Route path="/rq-super-heros/:id" element={<RQSuperHeroDetail />} />
         <Route path="/rq-parallel" element={<RQParallelQuaries />} />
+        <Route path="/rq-dynamic-parallel" element={<RQDynamicParallelQuaries idlist={[1,3]} />} />
 
       </Routes>
 
