@@ -10,6 +10,7 @@ import RQDynamicParallelQuaries from './components/RQDynamicParallelQuaries';
 import DependentQuaries from './components/DependentQuaries';
 import Navbar from './composables/Navbar';
 import PaginatedQuaries from './components/PaginatedQuaries';
+import InfiniteQueries from './components/InfiniteQueries';
 import {
   QueryClient,
   QueryClientProvider,
@@ -40,6 +41,7 @@ function App() {
         <Route path="/rq-dynamic-parallel" element={<RQDynamicParallelQuaries idlist={[1,3]} />} />
         <Route path="/rq-dependent" element={<DependentQuaries email="ansh" />} />
         <Route path="/rq-paginated" element={<PaginatedQuaries />} />
+        <Route path="/rq-infinite" element={<InfiniteQueries />} />
 
       </Routes>
 
