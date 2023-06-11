@@ -24,8 +24,12 @@
       "name": "Shazam",
       "alterEgo": "Billy Batson",
       "id": 5
+    },
+    {
+      "name": "hnji",
+      "alterEgo": "hhh",
+      "id": 6
     }
-    
   ],
   "friends": [
     {
