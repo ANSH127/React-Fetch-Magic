@@ -2,6 +2,7 @@ import React from 'react'
 // import { useQuery } from '@tanstack/react-query'
 // import axios from 'axios'
 import {useSuperHerosData} from '../hooks/useSuperHerosData'
+import { Link } from 'react-router-dom'
 
 export default function RQSuperHerosPage() {
 
@@ -28,7 +29,9 @@ export default function RQSuperHerosPage() {
     {
       data?.map((item) => {
         return <div key={item.id}>
+          <Link to={`/rq-super-heros/${item.id}`}>
           <h1>{item.name}</h1>
+          </Link>
         </div>
 
 
