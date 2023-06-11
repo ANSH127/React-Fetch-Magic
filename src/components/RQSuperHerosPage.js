@@ -7,6 +7,12 @@ export default function RQSuperHerosPage() {
     queryKey: ['superherodata'],
     queryFn: () =>
       axios.get('http://localhost:4000/superheroes').then((res) => res.data),
+    // staleTime: 20000, //it means it will pause the request for 20 seconds
+    // refetchOnMount:true, //it means it will refetch the data when the component mounts
+    // refetchOnWindowFocus:true, //it means it will refetch the data when the window is in focus
+    // refetchInterval:2000, //it means it will refetch the data every 2 seconds
+    // refetchIntervalInBackground:true, //it means it will refetch the data every 2 seconds even if the window is not in focus
+    
   })
 
   if (isLoading) return 'Loading...'
