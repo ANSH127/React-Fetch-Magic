@@ -24,12 +24,30 @@ export const useAddSuperHero = () => {
   return useMutation({
     mutationFn: (data) =>
       axios.post('http://localhost:4000/superheroes', data),
-    onSuccess: (data) => {
+    // onSuccess: (data) => {
       
-      queryClient.setQueryData(['superherodata'], (oldData) => [...oldData, data.data])
+    //   queryClient.setQueryData(['superherodata'], (oldData) => [...oldData, data.data])
 
+    // },
+    // onError: () => console.log('data not added successfully'),
+
+    onMutate: async (newdata) => {
+      await queryClient.cancelQueries({queryKey:['superherodata']})
+
+      const previousData = queryClient.getQueryData(['superherodata'])
+
+      queryClient.setQueryData(['superherodata'], (oldData) => [...oldData, {id:oldData.length+1,...newdata}])
+
+      return { previousData }
     },
-    onError: () => console.log('data not added successfully'),
+
+    onError: (err, newdata, context) => {
+      queryClient.setQueryData(['superherodata'], context.previousData)
+    },
+
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ['superherodata'] })
+    }
 
   })
 }

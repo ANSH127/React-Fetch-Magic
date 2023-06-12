@@ -26,9 +26,14 @@
       "id": 5
     },
     {
-      "name": "hnji",
-      "alterEgo": "hhh",
+      "name": "hi",
+      "alterEgo": "hhhh",
       "id": 6
+    },
+    {
+      "name": "hi2",
+      "alterEgo": "hhhh",
+      "id": 7
     }
   ],
   "friends": [
